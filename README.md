@@ -5,6 +5,6 @@ For the dependent packages, Please refer setup.py.
 
 Data visualization of the assigned POI -
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/venneladondapati/eq_works_solution/blob/main/POI_distribution.png)
 
 Refer bonus.txt for the explanation of the mathematical model.
