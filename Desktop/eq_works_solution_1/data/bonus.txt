@@ -1,0 +1,35 @@
+POI1 and POI2 have same coordinates, hence there are 3 POI_IDs of interest i.e POI1,POI3 and POI4.
+
+Explanation for the model implemented for 4a is :-
+
+
+For the factors affecting the popularity, it is mentioned in the question to take average
+and outliers into consideration.
+
+The factors considered for the function are-
+1. Average distance of data point from the assigned POI label - smaller average, states it is closer to
+the assigned POI, hence higher popularity.
+2. Standard Deviation of distance from assigned POI label - Smaller the value, higher the effect on popularity.
+3. Number of requests of Assigned POI label - Greater the value, Higher the impact on popularity.
+
+Average/Standard deviation - Greater this value, higher the popularity. Having an average more than standard deviation states that the requests are close to each other. Hence, this value is directly proportional to the popularity. This value has an impact on the popularity based on the average and outliers.
+
+Number of requests assigned to a POI/Total number of requests - This value brings the weightage of the quantity of requests assigned to a POI. This value is directly proportional to the popularity.
+
+Taking into consideration of both the values, we can get an estimation of the popularity with the sum of the above values. To restrict the value of popularity to 0 to 1, we use sigmoid as activation function. We then normalize and scale the value to -10 to 10.
+
+Hence the mathematical model is-
+
+X = Avg/std_dev + num_requests/total_requests
+Sigmoid_val = 1/(1 + math.exp(-x))
+normal_val = (sig_val-1)/2 (normalized -  -1 to 1)
+popularity = 10 * normal_val (scaled - -10 to 10)
+
+Values achieved-
+POI1 - -1.1411524869818583
+POI3 - -0.3759690297266627
+POI4 - -2.0530720819974886
+
+The above popularity can be confirmed from the image attached, the image is based on the visualization of the POI requests. In the Image :- POI1 - Red; POI3 - Green; POI4 - Blue. (The code for visualization is the written as the function - data_visualize in the solution file.)
+
+From the image we can infer that, POI3 is densely populated. Hence Highest popularity score.
